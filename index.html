@@ -92,7 +92,7 @@
     <div class="result" id="formResult"></div>
   </div>
 
-  <!-- JavaScript Logic -->
+  <!-- ✅ JavaScript Functionality -->
   <script>
     function calculateBMI() {
       const h = parseFloat(document.getElementById('height').value);
@@ -116,17 +116,22 @@
     }
 
     function checkFood() {
-      const food = document.getElementById('foodInput').value.toLowerCase();
+      const food = document.getElementById('foodInput').value.trim().toLowerCase();
       const result = document.getElementById('foodResult');
 
-      const healthy = ['apple', 'banana', 'carrot', 'broccoli', 'nuts'];
-      const unhealthy = ['burger', 'pizza', 'chips', 'coke'];
-      const moderate = ['rice', 'bread', 'potato'];
+      const healthy = ['apple', 'banana', 'carrot', 'broccoli', 'nuts', 'spinach', 'oats', 'dal', 'sprouts'];
+      const unhealthy = ['burger', 'pizza', 'chips', 'coke', 'fries', 'icecream', 'noodles', 'cake'];
+      const moderate = ['rice', 'bread', 'potato', 'paneer', 'milk', 'eggs'];
 
-      if (healthy.includes(food)) result.textContent = ${food} is Healthy ✅;
-      else if (unhealthy.includes(food)) result.textContent = ${food} is Unhealthy ❌;
-      else if (moderate.includes(food)) result.textContent = ${food} is Moderate ⚠;
-      else result.textContent = Food not found in database.;
+      if (healthy.includes(food)) {
+        result.textContent = ${food} is ✅ Healthy;
+      } else if (unhealthy.includes(food)) {
+        result.textContent = ${food} is ❌ Unhealthy;
+      } else if (moderate.includes(food)) {
+        result.textContent = ${food} is ⚠ Moderate;
+      } else {
+        result.textContent = 🔎 Food not found in database.;
+      }
     }
 
     function showRemedy() {
@@ -134,28 +139,29 @@
       const result = document.getElementById('remedyResult');
 
       const remedies = {
-        headache: 'Drink water, rest in a quiet dark room, apply peppermint oil.',
-        stomach: 'Drink warm water, use ginger or mint tea, rest.',
-        cold: 'Use steam inhalation, drink warm fluids, rest.',
-        acidity: 'Drink cold milk, eat banana, avoid spicy food.'
+        headache: '💊 Try drinking water, resting, and applying peppermint oil to temples.',
+        stomach: '🥤 Drink warm water or ginger tea. Rest and avoid spicy food.',
+        cold: '🌡 Inhale steam, drink warm fluids, and take rest.',
+        acidity: '🥛 Drink cold milk, avoid spicy food, and eat banana or cucumber.'
       };
 
-      result.textContent = remedies[problem] || 'Please select a problem.';
+      result.textContent = remedies[problem] || 'Please select a health problem.';
     }
 
     function submitForm() {
-      const name = document.getElementById('name').value;
-      const age = document.getElementById('age').value;
+      const name = document.getElementById('name').value.trim();
+      const age = document.getElementById('age').value.trim();
       const result = document.getElementById('formResult');
 
       if (!name || !age) {
-        result.textContent = "Please fill out all fields.";
+        result.textContent = "❗ Please enter both name and age.";
         return;
       }
 
-      result.textContent = Hello ${name}, age ${age}. Welcome to your health dashboard!;
+      result.textContent = 👋 Hello ${name}, age ${age}. Welcome to your personal health dashboard!;
     }
   </script>
 
 </body>
 </html>
+    
