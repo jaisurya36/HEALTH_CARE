@@ -92,7 +92,7 @@
     <div class="result" id="formResult"></div>
   </div>
 
-  <!-- ✅ JavaScript Functionality -->
+  <!-- ✅ JavaScript Logic -->
   <script>
     function calculateBMI() {
       const h = parseFloat(document.getElementById('height').value);
@@ -116,12 +116,13 @@
     }
 
     function checkFood() {
-      const food = document.getElementById('foodInput').value.trim().toLowerCase();
+      const foodInput = document.getElementById('foodInput');
+      const food = foodInput.value.trim().toLowerCase();
       const result = document.getElementById('foodResult');
 
-      const healthy = ['apple', 'banana', 'carrot', 'broccoli', 'nuts', 'spinach', 'oats', 'dal', 'sprouts'];
-      const unhealthy = ['burger', 'pizza', 'chips', 'coke', 'fries', 'icecream', 'noodles', 'cake'];
-      const moderate = ['rice', 'bread', 'potato', 'paneer', 'milk', 'eggs'];
+      const healthy = ['apple', 'banana', 'carrot', 'broccoli', 'oats', 'nuts', 'dal'];
+      const unhealthy = ['pizza', 'burger', 'chips', 'coke', 'ice cream', 'fries'];
+      const moderate = ['bread', 'rice', 'milk', 'paneer', 'potato'];
 
       if (healthy.includes(food)) {
         result.textContent = ${food} is ✅ Healthy;
@@ -139,10 +140,10 @@
       const result = document.getElementById('remedyResult');
 
       const remedies = {
-        headache: '💊 Try drinking water, resting, and applying peppermint oil to temples.',
-        stomach: '🥤 Drink warm water or ginger tea. Rest and avoid spicy food.',
-        cold: '🌡 Inhale steam, drink warm fluids, and take rest.',
-        acidity: '🥛 Drink cold milk, avoid spicy food, and eat banana or cucumber.'
+        headache: '💊 Drink water, rest, and apply peppermint oil.',
+        stomach: '🥤 Ginger tea or mint. Avoid oily food.',
+        cold: '🌡 Steam inhale, warm water, honey + lemon.',
+        acidity: '🥛 Cold milk, banana, avoid spicy food.'
       };
 
       result.textContent = remedies[problem] || 'Please select a health problem.';
@@ -158,7 +159,7 @@
         return;
       }
 
-      result.textContent = 👋 Hello ${name}, age ${age}. Welcome to your personal health dashboard!;
+      result.textContent = 👋 Hello ${name}, age ${age}. Welcome to your health dashboard!;
     }
   </script>
 
