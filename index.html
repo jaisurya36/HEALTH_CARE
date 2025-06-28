@@ -30,6 +30,7 @@
       text-decoration: none;
       font-size: 16px;
       transition: background-color 0.3s ease;
+      cursor: pointer;
     }
     .btn:hover {
       background-color: #1a5ec8;
@@ -41,8 +42,22 @@
   <h1>👨‍⚕ Welcome to Health Care Web App</h1>
   <p>This app helps you check food healthiness, BMI, and get natural health tips!</p>
 
-  <a href="#" class="btn">🍎 Check Food Health</a>
-  <a href="#" class="btn">📊 BMI Calculator</a>
-  <a href="#" class="btn">💡 Natural Remedies</a>
+  <a class="btn" onclick="checkFood()">🍎 Check Food Health</a>
+  <a class="btn" onclick="calculateBMI()">📊 BMI Calculator</a>
+  <a class="btn" onclick="showTips()">💡 Natural Remedies</a>
+
+  <script>
+    function checkFood() {
+      alert("🍎 This feature will check if the food is healthy or not!");
+    }
+
+    function calculateBMI() {
+      alert("📊 This will open the BMI Calculator (coming soon)!");
+    }
+
+    function showTips() {
+      alert("💡 Natural health tips will be shown here!");
+    }
+  </script>
 </body>
 </html>
